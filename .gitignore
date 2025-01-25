@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/minimalAPI-mongodb/bin/Debug/net8.0
+/.vs/minimalAPI-mongodb/FileContentIndex
+/.vs/minimalAPI-mongodb/DesignTimeBuild
+/.vs/ProjectEvaluation
+/minimalAPI-mongodb/obj
+/.vs/minimalAPI-mongodb/v17
+/.vs/minimalAPI-mongodb/config
