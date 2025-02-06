@@ -90,7 +90,7 @@ namespace minimalAPI_mongodb
                 return Results.Ok();
             });
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseAuthorization();
             
