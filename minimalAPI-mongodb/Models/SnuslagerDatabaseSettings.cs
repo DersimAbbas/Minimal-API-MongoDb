@@ -1,6 +1,6 @@
 ﻿namespace minimalAPI_mongodb.Models
 {
-    public class MessageLogDatabaseSettings
+    public class SnuslagerDatabaseSettings
     {
         public string ConnectionString { get; set; } = null!;
         public string DatabaseName { get; set; } = null!;

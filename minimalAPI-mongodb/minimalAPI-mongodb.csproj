@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
     <RootNamespace>minimalAPI_mongodb</RootNamespace>
+    <UserSecretsId>42ddb0b7-5ffb-495a-8596-e780ed5fdaea</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

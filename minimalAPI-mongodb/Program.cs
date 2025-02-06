@@ -16,18 +16,19 @@ namespace minimalAPI_mongodb
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.Configure<MessageLogDatabaseSettings>(
-                builder.Configuration.GetSection("MessageLogDatabaseSettings"));
+            builder.Services.Configure<SnuslagerDatabaseSettings>(
+                builder.Configuration.GetSection("snuslagerDatabaseSettings"));
             
-            builder.Services.AddSingleton<MessageService>();
+            builder.Services.AddSingleton<SnusService>();
             builder.Services.AddAuthorization();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
             var app = builder.Build();
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -35,43 +36,53 @@ namespace minimalAPI_mongodb
                 app.UseSwaggerUI();
             }
             // GET
-            app.MapGet("/messages", async (MessageService service) =>
+            app.MapGet("/snuslager", async (SnusService service) =>
             {
-                var messages = await service.GetAsync();
-                return Results.Ok(messages);
+                var snus = await service.GetAsync();
+                return Results.Ok(snus);
             });
             //get by id
-            app.MapGet("/messages{id}", async (MessageService service, string id) =>
+            app.MapGet("/snuslager/snus{id}", async (SnusService service, string id) =>
             {
-                var messages = await service.GetByIdAsync(id);
+                var snus = await service.GetByIdAsync(id);
 
-                if (messages == null)
+                if (snus == null)
                 {
-                    return Results.NotFound(messages);
+                    return Results.NotFound(snus);
                 }
                 else
                 {
-                    return Results.Ok(messages);
+                    return Results.Ok(snus);
 
                 }
+
             });
             // update by id
-            app.MapPut("/messages{id}", async (MessageService service, Messages Updatedmessage, string id) =>
+            app.MapPut("/snuslager/snus{id}", async (SnusService service, Snus updatedSnus, string id) =>
             {
                 var storedMessage = await service.GetByIdAsync(id);
                 if (storedMessage == null)
                 {
                     return Results.NotFound();
+
                 }
-                await service.UpdateAsync(id, Updatedmessage);
+                await service.UpdateAsync(id, updatedSnus);
                 return Results.Ok(storedMessage);
             });
-
-            app.MapDelete("/messages{id}", async (MessageService service, string id) =>
+            app.MapPost("/snuslager/newsnus", async (SnusService service, Snus newSnus) =>
             {
-                var messages = await service.GetByIdAsync(id);
+                
+                await service.CreateAsync(newSnus);
+                return Results.Ok(newSnus);
+                
+            });
 
-                if (messages == null)
+
+            app.MapDelete("/snuslager/deletesnus{id}", async (SnusService service, string id) =>
+            {
+                var snus = await service.GetByIdAsync(id);
+
+                if (snus == null)
                 {
                     return Results.NotFound();
                 }
@@ -79,7 +90,7 @@ namespace minimalAPI_mongodb
                 return Results.Ok();
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseAuthorization();
             
