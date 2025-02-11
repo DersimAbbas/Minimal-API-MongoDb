@@ -10,9 +10,41 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Properties\PublishProfiles\**" />
+    <Compile Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - FTP\**" />
+    <Compile Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy1\**" />
+    <Compile Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy\**" />
+    <Compile Remove="Properties\ServiceDependencies\minimalAPImongoAtlas - Zip Deploy\**" />
+    <Content Remove="Properties\PublishProfiles\**" />
+    <Content Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - FTP\**" />
+    <Content Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy1\**" />
+    <Content Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy\**" />
+    <Content Remove="Properties\ServiceDependencies\minimalAPImongoAtlas - Zip Deploy\**" />
+    <EmbeddedResource Remove="Properties\PublishProfiles\**" />
+    <EmbeddedResource Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - FTP\**" />
+    <EmbeddedResource Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy1\**" />
+    <EmbeddedResource Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy\**" />
+    <EmbeddedResource Remove="Properties\ServiceDependencies\minimalAPImongoAtlas - Zip Deploy\**" />
+    <None Remove="Properties\PublishProfiles\**" />
+    <None Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - FTP\**" />
+    <None Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy1\**" />
+    <None Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy\**" />
+    <None Remove="Properties\ServiceDependencies\minimalAPImongoAtlas - Zip Deploy\**" />
+    <_WebToolingArtifacts Remove="Properties\PublishProfiles\**" />
+    <_WebToolingArtifacts Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - FTP\**" />
+    <_WebToolingArtifacts Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy1\**" />
+    <_WebToolingArtifacts Remove="Properties\ServiceDependencies\minimalAPI-Snuslager - Web Deploy\**" />
+    <_WebToolingArtifacts Remove="Properties\ServiceDependencies\minimalAPImongoAtlas - Zip Deploy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
     <PackageReference Include="MongoDb.driver" Version="3.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\ServiceDependencies\" />
   </ItemGroup>
 
 </Project>

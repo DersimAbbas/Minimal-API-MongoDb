@@ -9,3 +9,4 @@
 /minimalAPI-mongodb/obj
 /.vs/minimalAPI-mongodb/v17
 /.vs/minimalAPI-mongodb/config
+/minimalAPI-mongodb/appsettings.json

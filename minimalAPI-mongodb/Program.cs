@@ -27,8 +27,7 @@ namespace minimalAPI_mongodb
             builder.Services.AddSwaggerGen();
             var app = builder.Build();
 
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -89,7 +88,8 @@ namespace minimalAPI_mongodb
                 await service.RemoveAsync(id);
                 return Results.Ok();
             });
-
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
